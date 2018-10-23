@@ -1,0 +1,27 @@
+.sidebar {
+    height: 100%;
+    width: 280px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background: rgba(130,130,130,1);
+    overflow-x: hidden;
+    padding-top: 20px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.avatar {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+
+.bio {
+    padding: 10px;
+}
+
+.websiteLink {
+    padding: 10px;
+}

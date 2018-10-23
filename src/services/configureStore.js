@@ -18,8 +18,19 @@ export default function configureStore (initialState = {}) {
     }))
   }
 
-  const enhancers = [applyMiddleware(...middleware)]
-  const store = createStore(rootReducer, initialState, compose(...enhancers))
+  // const enhancers = [applyMiddleware(...middleware)]
+  // const store = createStore(rootReducer, initialState, compose(...enhancers), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__())
+
+  let composeEnhancers = null
+  if (process.env.NODE_ENV !== 'production') {
+    composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+  } else {
+    composeEnhancers = compose
+  }
+
+  const store = createStore(rootReducer, initialState, composeEnhancers(
+    applyMiddleware(...middleware)
+  ))
 
   // For hot reloading of react components and debugging
   if (process.env.NODE_ENV !== 'production' && module.hot) {

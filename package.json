@@ -4,12 +4,14 @@
   "private": true,
   "dependencies": {
     "cc-react-scripts": "1.5.2",
+    "d3": "5.7.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "webpack-dashboard": "2.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -6,12 +6,17 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {withRouter} from 'react-router-dom'
 
-import Header from 'components/Header'
+import Profile from 'components/Profile'
+import Sidebar from 'components/Sidebar'
 import {getUser} from 'actions/userActions'
 import {getRepos} from 'actions/reposActions'
 import {getEvents} from 'actions/eventsActions'
 
-const mapStateToProps = state => ({})
+const mapStateToProps = state => ({
+  user: state.user,
+  repos: state.repos,
+  events: state.events
+})
 const mapDispatchToProps = dispatch => (bindActionCreators({
   getEvents,
   getRepos,
@@ -24,7 +29,10 @@ export default class App extends Component {
   static propTypes = {
     getEvents: PropTypes.func.isRequired,
     getRepos: PropTypes.func.isRequired,
-    getUser: PropTypes.func.isRequired
+    getUser: PropTypes.func.isRequired,
+    user: PropTypes.object.isRequired,
+    repos: PropTypes.array.isRequired,
+    events: PropTypes.array.isRequired
   }
 
   componentDidMount () {
@@ -37,7 +45,10 @@ export default class App extends Component {
   render () {
     return (
       <div styleName='app'>
-        <Header />
+        <Sidebar user={this.props.user} />
+        <Profile
+          repos={this.props.repos}
+          events={this.props.events} />
       </div>
     )
   }
