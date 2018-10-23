@@ -39,7 +39,7 @@ export default class Profile extends Component {
         <h2>Github User Statistics</h2>
         <h3>Stars by repo</h3>
         <Barchart data={repoStars} xLabel='Repos' yLabel='Stars' width={1000} height={500} />
-        <h3>Watchers by repo</h3>
+        <h3>Forks by repo</h3>
         <Barchart data={repoForks} xLabel='Repos' yLabel='Forks' width={1000} height={500} />
         <h3>Daily Activity</h3>
         <Barchart data={dailyActivity} xLabel='Date' yLabel='Number of Events' width={1000} height={500} />
